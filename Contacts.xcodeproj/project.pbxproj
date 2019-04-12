@@ -8,20 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		F72B94352260E4AE004ECF6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B94342260E4AE004ECF6E /* AppDelegate.swift */; };
-		F72B94372260E4AE004ECF6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B94362260E4AE004ECF6E /* ViewController.swift */; };
 		F72B943A2260E4AE004ECF6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72B94382260E4AE004ECF6E /* Main.storyboard */; };
 		F72B943C2260E4B3004ECF6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F72B943B2260E4B3004ECF6E /* Assets.xcassets */; };
 		F72B943F2260E4B3004ECF6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72B943D2260E4B3004ECF6E /* LaunchScreen.storyboard */; };
+		F72B944B2260E4FF004ECF6E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72B944A2260E4FF004ECF6E /* CloudKit.framework */; };
+		F72B94522260E537004ECF6E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B94512260E537004ECF6E /* Contact.swift */; };
+		F72B94542260EAB0004ECF6E /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B94532260EAB0004ECF6E /* ContactController.swift */; };
+		F72B94562260ED0E004ECF6E /* ContactListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72B94552260ED0E004ECF6E /* ContactListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F72B94312260E4AE004ECF6E /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72B94342260E4AE004ECF6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F72B94362260E4AE004ECF6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F72B94392260E4AE004ECF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F72B943B2260E4B3004ECF6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F72B943E2260E4B3004ECF6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F72B94402260E4B3004ECF6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F72B94482260E4FD004ECF6E /* Contacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Contacts.entitlements; sourceTree = "<group>"; };
+		F72B944A2260E4FF004ECF6E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		F72B94512260E537004ECF6E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		F72B94532260EAB0004ECF6E /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
+		F72B94552260ED0E004ECF6E /* ContactListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72B944B2260E4FF004ECF6E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				F72B94332260E4AE004ECF6E /* Contacts */,
 				F72B94322260E4AE004ECF6E /* Products */,
+				F72B94492260E4FF004ECF6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,81 @@
 		F72B94332260E4AE004ECF6E /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				F72B94482260E4FD004ECF6E /* Contacts.entitlements */,
+				F72B944E2260E519004ECF6E /* Controllers */,
+				F72B944D2260E515004ECF6E /* Views */,
+				F72B944C2260E50E004ECF6E /* Models */,
+				F72B94472260E4E7004ECF6E /* Storyboards */,
+				F72B94462260E4DA004ECF6E /* Resources */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		F72B94462260E4DA004ECF6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				F72B94342260E4AE004ECF6E /* AppDelegate.swift */,
-				F72B94362260E4AE004ECF6E /* ViewController.swift */,
-				F72B94382260E4AE004ECF6E /* Main.storyboard */,
 				F72B943B2260E4B3004ECF6E /* Assets.xcassets */,
 				F72B943D2260E4B3004ECF6E /* LaunchScreen.storyboard */,
 				F72B94402260E4B3004ECF6E /* Info.plist */,
 			);
-			path = Contacts;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F72B94472260E4E7004ECF6E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F72B94382260E4AE004ECF6E /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F72B94492260E4FF004ECF6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F72B944A2260E4FF004ECF6E /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F72B944C2260E50E004ECF6E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F72B94512260E537004ECF6E /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F72B944D2260E515004ECF6E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F72B944E2260E519004ECF6E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F72B94502260E522004ECF6E /* View Controllers */,
+				F72B944F2260E51C004ECF6E /* Model Controllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F72B944F2260E51C004ECF6E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F72B94532260EAB0004ECF6E /* ContactController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F72B94502260E522004ECF6E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F72B94552260ED0E004ECF6E /* ContactListTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +172,14 @@
 				TargetAttributes = {
 					F72B94302260E4AE004ECF6E = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,8 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72B94372260E4AE004ECF6E /* ViewController.swift in Sources */,
+				F72B94522260E537004ECF6E /* Contact.swift in Sources */,
 				F72B94352260E4AE004ECF6E /* AppDelegate.swift in Sources */,
+				F72B94562260ED0E004ECF6E /* ContactListTableViewController.swift in Sources */,
+				F72B94542260EAB0004ECF6E /* ContactController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +368,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q89A379BUF;
-				INFOPLIST_FILE = Contacts/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Contacts/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,9 +387,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q89A379BUF;
-				INFOPLIST_FILE = Contacts/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Contacts/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
