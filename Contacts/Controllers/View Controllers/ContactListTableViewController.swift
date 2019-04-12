@@ -5,16 +5,19 @@
 //  Created by Brooke Kumpunen on 4/12/19.
 //  Copyright © 2019 Rund LLC. All rights reserved.
 //
+//I'm betting it is due to the save being asyncronous (i.e. you are popping back and reloading the tableview before the save finishes and appends the new contact) You can either append first, or wait until the save has completed to pop back and reload
 
 import UIKit
 
 class ContactListTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Gotta have my list of contacts pulled up right when I open the app. Call the fetch here, as well as App Delegate.
         ContactController.shared.fetchAllContacts { (contacts) in
             DispatchQueue.main.async {
+                guard let contacts = contacts else {return}
+                ContactController.shared.contacts = contacts
                 self.tableView.reloadData()
             }
         }
@@ -22,12 +25,14 @@ class ContactListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ContactController.shared.fetchAllContacts { (contacts) in
-            DispatchQueue.main.async {
-                 self.tableView.reloadData()
-            }
-        }
+        tableView.reloadData()
+//        ContactController.shared.fetchAllContacts { (contacts) in
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
     }
+
 
     // MARK: - Table view data source
 
@@ -58,8 +63,5 @@ class ContactListTableViewController: UITableViewController {
             let contact = ContactController.shared.contacts[indexPath.row]
             destinationVC.contact = contact
         }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-
 }

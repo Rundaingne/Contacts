@@ -17,7 +17,11 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        ContactController.shared.fetchAllContacts { (contacts) in
+        }
     }
     
     //MARK: - Properties and methods
@@ -49,7 +53,7 @@ class ContactDetailViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
             guard let name = alertController.textFields?[0].text, !name.isEmpty,
-            let email = alertController.textFields?[1].text,
+                let email = alertController.textFields?[1].text,
                 let phoneNumber = alertController.textFields?[2].text,
                 let contact = self.contact else {return}
             //Right here, I will call the update contact function. let's go create that. Then when i'm done with that, reload the data and end.
@@ -69,5 +73,5 @@ class ContactDetailViewController: UIViewController {
         presentContactEditor(title: "Edit your contact?", message: "")
     }
     
-
+    
 }

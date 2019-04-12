@@ -20,6 +20,10 @@ class AddContactViewController: UIViewController {
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     //MARK -Actions
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         //When I tap this button, create a contact. Easy. Then pop the view controller.
@@ -31,7 +35,6 @@ class AddContactViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }
-        
     }
     
 

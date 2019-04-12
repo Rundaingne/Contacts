@@ -22,6 +22,7 @@ class ContactController {
     //CRUD and other methods
     func createContact(with name: String, email: String, phoneNumber: String, completion: @escaping (Contact?) -> Void) {
         let contact = Contact(name: name, phoneNumber: phoneNumber, email: email)
+        self.contacts.append(contact)
         publicDB.save(CKRecord(contact: contact)) { (record, error) in
             if let error = error {
                 print("\(error.localizedDescription) \(error) in function: \(#function)")
@@ -30,7 +31,6 @@ class ContactController {
             }
             guard let record = record,
             let contact = Contact(ckRecord: record) else {completion(nil); return}
-            self.contacts.append(contact)
             completion(contact)
         }
     }
