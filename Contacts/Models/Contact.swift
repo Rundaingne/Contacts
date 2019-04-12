@@ -16,13 +16,13 @@ import CloudKit
 
 class Contact {
     
-    let name: String
-    let phoneNumber: Int?
-    let email: String?
+    var name: String
+    var phoneNumber: String?
+    var email: String?
     
     let recordID: CKRecord.ID
     
-    init(name: String, phoneNumber: Int, email: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(name: String, phoneNumber: String, email: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.name = name
         self.phoneNumber = phoneNumber
         self.email = email
@@ -34,7 +34,7 @@ class Contact {
     convenience init?(ckRecord: CKRecord) {
         //In order to fill this out, I'll need some constants. Enum time.
         guard let name = ckRecord[Keys.nameKey] as? String,
-        let phoneNumber = ckRecord[Keys.phoneNumberKey] as? Int,
+        let phoneNumber = ckRecord[Keys.phoneNumberKey] as? String,
             let email = ckRecord[Keys.emailKey] as? String else {return nil}
         self.init(name: name, phoneNumber: phoneNumber, email: email, recordID: ckRecord.recordID)
     }

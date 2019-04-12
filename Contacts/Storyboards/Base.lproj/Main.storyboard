@@ -13,7 +13,7 @@
         <!--Root View Controller-->
         <scene sceneID="exW-TO-Flt">
             <objects>
-                <tableViewController id="D51-NO-7xi" sceneMemberID="viewController">
+                <tableViewController id="D51-NO-7xi" customClass="ContactListTableViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z47-j4-v5O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="eVR-pa-rfe" kind="show" identifier="toContactDetail" id="S5l-py-Ifj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,10 +57,67 @@
             </objects>
             <point key="canvasLocation" x="112.8" y="-521.28935532233891"/>
         </scene>
+        <!--Current Contact-->
+        <scene sceneID="0wQ-F8-hSu">
+            <objects>
+                <viewController id="eVR-pa-rfe" customClass="ContactDetailViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dy9-aE-Qvl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="E4C-7w-zTP">
+                                <rect key="frame" x="8" y="72" width="359" height="155"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Ez-yM4">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Email)" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJa-Sh-V65">
+                                        <rect key="frame" x="0.0" y="69" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Phone Number)" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veK-eL-Gcp">
+                                        <rect key="frame" x="0.0" y="134.5" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E4C-7w-zTP" firstAttribute="top" secondItem="H6a-MN-rrj" secondAttribute="top" constant="8" id="Atk-iJ-5Yq"/>
+                            <constraint firstItem="E4C-7w-zTP" firstAttribute="leading" secondItem="H6a-MN-rrj" secondAttribute="leading" constant="8" id="AuK-Eh-gyc"/>
+                            <constraint firstItem="H6a-MN-rrj" firstAttribute="trailing" secondItem="E4C-7w-zTP" secondAttribute="trailing" constant="8" id="Cfr-rd-8Ov"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H6a-MN-rrj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Current Contact" id="URe-kg-AoS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Kjd-88-v4l">
+                            <connections>
+                                <action selector="editContactButtonTapped:" destination="eVR-pa-rfe" id="qUx-Mw-qdI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contactEmailLabel" destination="UJa-Sh-V65" id="yrB-zR-oYJ"/>
+                        <outlet property="contactNameLabel" destination="Gjt-Ez-yM4" id="zOK-a6-mYu"/>
+                        <outlet property="contactPhoneNumberLabel" destination="veK-eL-Gcp" id="iLu-uF-2eY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FSp-2F-26y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="18.440779610194905"/>
+        </scene>
         <!--Create a Contact-->
         <scene sceneID="sDx-be-Qwz">
             <objects>
-                <viewController id="BAT-dW-J6q" sceneMemberID="viewController">
+                <viewController id="BAT-dW-J6q" customClass="AddContactViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4cN-yQ-RTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,12 +157,21 @@
                         <viewLayoutGuide key="safeArea" id="Gtu-Mg-EXd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create a Contact" id="cdA-UU-zcd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Fbm-Qp-8VF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Fbm-Qp-8VF">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BAT-dW-J6q" id="Fp3-m0-4cN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailtextField" destination="ptf-zQ-862" id="RyL-BL-7gd"/>
+                        <outlet property="nameTextField" destination="78W-UA-Wij" id="ZiN-1w-meO"/>
+                        <outlet property="phoneNumberTextField" destination="9au-FJ-7yU" id="XLo-2X-4Kf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i4i-s9-cgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.8" y="-521.28935532233891"/>
+            <point key="canvasLocation" x="1116" y="-844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5t5-sQ-fa1">
